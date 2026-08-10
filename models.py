@@ -15,12 +15,9 @@ class PinCodeRequest(BaseModel):
     
 class LocationResponse(BaseModel):
     pincode: str
+    region: str
     city: str
-    state: str
     district: str
-    # pincode: str
-    # region: str
-    # district: str
     
 class BulkLocationRequest(BaseModel):
     pincodes: list[str]

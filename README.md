@@ -29,6 +29,98 @@ The API is designed for applications such as **e-commerce checkout forms**, wher
 ## 📁 Project Structure
 
 ```text
+🇹🇿 EMTAA — Tanzania Pincode Lookup API
+│
+├── 📁 Scripts/
+│   └── ⚙️ Supporting / utility scripts
+│
+├── 📄 main.py
+│   └── 🚀 FastAPI application entry point
+│       ├── API routes
+│       ├── Pincode lookup
+│       ├── Bulk lookup
+│       └── Request / response handling
+│
+├── 📄 models.py
+│   └── 🧩 Pydantic data models
+│       ├── Request schemas
+│       ├── Response schemas
+│       └── Data validation
+│
+├── 📄 data.py
+│   └── 🇹🇿 Tanzania pincode/location dataset
+│       ├── Regions
+│       ├── Cities
+│       └── Districts
+│
+├── 📄 exceptions.py
+│   └── ⚠️ Custom API exceptions
+│       ├── Invalid pincode
+│       ├── Pincode not found
+│       └── Validation errors
+│
+├── 📄 requirements.txt
+│   └── 📦 Python dependencies
+│       ├── FastAPI
+│       ├── Pydantic
+│       └── Uvicorn
+│
+├── 📄 README.md
+│   └── 📚 Project documentation
+│       ├── Features
+│       ├── Installation
+│       ├── API usage
+│       └── Examples
+│
+├── 📄 .gitignore
+│   └── 🚫 Ignored files / directories
+│
+└── 📄 pyvenv.cfg
+    └── 🐍 Python virtual-environment configuration
+
+
+                ┌─────────────────────────┐
+                │       Client / App       │
+                │  E-commerce / Checkout   │
+                └────────────┬────────────┘
+                             │
+                             │ 6-digit Pincode
+                             ▼
+                ┌─────────────────────────┐
+                │        main.py           │
+                │     FastAPI API Layer    │
+                └────────────┬────────────┘
+                             │
+              ┌──────────────┼──────────────┐
+              ▼              ▼              ▼
+       ┌────────────┐ ┌────────────┐ ┌──────────────┐
+       │  models.py │ │  data.py   │ │ exceptions.py│
+       │ Validation │ │ 🇹🇿 Data     │ │ Error        │
+       │ & Schemas  │ │ Lookup     │ │ Handling     │
+       └────────────┘ └─────┬──────┘ └──────────────┘
+                            │
+                            ▼
+                 ┌────────────────────┐
+                 │ Tanzania Location   │
+                 │      Data          │
+                 ├────────────────────┤
+                 │ Region             │
+                 │ City               │
+                 │ District           │
+                 └─────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────────┐
+                │       API Response      │
+                │                         │
+                │ Pincode → Region        │
+                │         → City          │
+                │         → District      │
+                └─────────────────────────┘
+```
+
+
+```text
 emtaa/
 │
 ├── main.py             # FastAPI application and API routes
